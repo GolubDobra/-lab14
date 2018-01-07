@@ -26,14 +26,22 @@ Allowed options:
 ```ShellSession
 $ ./builder
 <=>
+#-H. устанавливаем каталог в который сгенерируется файл 
+#-B_build указывает директорию для собираемых файлов 
+#-D - заменяет команду set 
 $ cmake -H. -B_builds -DCMAKE_INSTALL_PREFIX=_install -DCMAKE_BUILD_TYPE=Debug
+#--build _builds создает бинарное дерево проекта 
 $ cmake --build _builds
 ```
 
 ```ShellSession
 $ ./builder --config Release
 <=>
+#-H. устанавливаем каталог в который сгенерируется файл
+#-B_build указывает директорию для собираемых файлов
+#-D - заменяет команду set
 $ cmake -H. -B_builds -DCMAKE_INSTALL_PREFIX=_install -DCMAKE_BUILD_TYPE=Release
+#--build _builds создает бинарное дерево проекта
 $ cmake --build _builds
 ```
 
@@ -41,24 +49,39 @@ $ cmake --build _builds
 ```ShellSession
 $ ./builder --install
 <=>
+#-H. устанавливаем каталог в который сгенерируется файл
+#-B_build указывает директорию для собираемых файлов
+#-D - заменяет команду set
 $ cmake -H. -B_builds -DCMAKE_INSTALL_PREFIX=_install -DCMAKE_BUILD_TYPE=Debug
+#--build _builds создает бинарное дерево проекта
 $ cmake --build _builds
+#--target указывает необходимые для обработки цели
 $ cmake --build _builds --target install
 ```
 
 ```ShellSession
 $ ./builder --pack
 <=>
+#-H. устанавливаем каталог в который сгенерируется файл
+#-B_build указывает директорию для собираемых файлов
+#-D - заменяет команду set
 $ cmake -H. -B_builds -DCMAKE_INSTALL_PREFIX=_install -DCMAKE_BUILD_TYPE=Debug
+#--build _builds создает бинарное дерево проекта
 $ cmake --build _builds
+#--target указывает необходимые для обработки цели
 $ cmake --build _builds --target package
 ```
 
 ```ShellSession
 $ ./builder --install --pack
 <=>
+#-H. устанавливаем каталог в который сгенерируется файл
+#-B_build указывает директорию для собираемых файлов
+#-D - заменяет команду set
 $ cmake -H. -B_builds -DCMAKE_INSTALL_PREFIX=_install -DCMAKE_BUILD_TYPE=Debug
+#--build _builds создает бинарное дерево проекта
 $ cmake --build _builds
+#--target указывает необходимые для обработки цели
 $ cmake --build _builds --target install
 $ cmake --build _builds --target package
 ```
@@ -66,22 +89,26 @@ $ cmake --build _builds --target package
 ```ShellSession
 $ ./builder --timeout 500
 <=>
+#-H. устанавливаем каталог в который сгенерируется файл
+#-B_build указывает директорию для собираемых файлов
+#-D - заменяет команду set
 $ cmake -H. -B_builds -DCMAKE_INSTALL_PREFIX=_install -DCMAKE_BUILD_TYPE=Debug
+#--build _builds создает бинарное дерево проекта
 $ cmake --build _builds
 ```
 
 ### Требования
 
-1. Для работы с процессами необходимо использовать библиотеку **Boost.Process**.
+- [x] 1. Для работы с процессами необходимо использовать библиотеку **Boost.Process**.
 
-2. В случае если время ожидания истекает, то программа завершает **все** дочерние запущенные процессы.
+- [X] 2. В случае если время ожидания истекает, то программа завершает **все** дочерние запущенные процессы.
 
-3. Этап установки запускается, только в случае успешного завершения процесса сборки.
+- [X] 3. Этап установки запускается, только в случае успешного завершения процесса сборки.
 
-4. Этап упаковки запускается, только в случаях успешного завершения процесса сборки и 
+- [X] 4. Этап упаковки запускается, только в случаях успешного завершения процесса сборки и 
 успешного завершения процесса установки.
 
-5. Стандартные потоки вывода дочерних процессов необходимо перенаправить в стандартный поток 
+- [X] 5. Стандартные потоки вывода дочерних процессов необходимо перенаправить в стандартный поток 
 вывода родительского процесса исполняемого файла **builder**.
 
 ### Ссылки
